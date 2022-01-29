@@ -1,4 +1,5 @@
 library(tidyverse)
+library(openxlsx)
 
 #--Read in txt--
 mbscode <- read.table("http://www.mbsonline.gov.au/internet/mbsonline/publishing.nsf/Content/1BC94358D4F276D3CA257CCF0000AA73/$File/MBSONLINE_DESC%2024DEC21.TXT", fill = TRUE) 
@@ -30,6 +31,6 @@ MBScode <- MBScode %>%
   filter(row>164, row<22248) %>% 
   select(-c, -row)
 
-#--Write to CSV--
-write_csv(MBScode, "./MBScode.csv")
+#--Write to xlsx--
+write.xlsx(MBScode, "./MBScode.xlsx")
 
